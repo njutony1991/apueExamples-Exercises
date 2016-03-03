@@ -1,0 +1,820 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0xb77df957, pid=3492, tid=3076404928
+#
+# JRE version: 6.0_30-b30
+# Java VM: OpenJDK Client VM (23.25-b01 mixed mode, sharing linux-x86 )
+# Problematic frame:
+# C  [ld-linux.so.2+0x18957]  realloc+0x2f17
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-6/
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x09800400):  JavaThread "main" [_thread_in_native, id=3492, stack(0xbfe7b000,0xbfecb000)]
+
+siginfo:si_signo=SIGBUS: si_errno=0, si_code=2 (BUS_ADRERR), si_addr=0xb2cadb74
+
+Registers:
+EAX=0x00000000, EBX=0xb77e7ff4, ECX=0x00000123, EDX=0x00000000
+ESP=0xbfec6ac8, EBP=0xbfec6c68, ESI=0xbfec6b28, EDI=0xb2cadb74
+EIP=0xb77df957, EFLAGS=0x00210206, CR2=0xb2cadb74
+
+Top of Stack: (sp=0xbfec6ac8)
+0xbfec6ac8:   09bdf6a8 b77cd8c7 b2cadb74 00000000
+0xbfec6ad8:   0000048c 00000812 0000006b 00058000
+0xbfec6ae8:   00000000 b77d2090 09be03b8 09be0338
+0xbfec6af8:   00000079 b6af07b8 b6e55ff4 b6e55ff4
+0xbfec6b08:   09bdf92f 00000078 00000000 00059000
+0xbfec6b18:   00058954 00058954 00000000 00000005
+0xbfec6b28:   00059000 0005b000 0005ab74 0005bbdc
+0xbfec6b38:   00058000 00000003 00000000 90000001 
+
+Instructions: (pc=0xb77df957)
+0xb77df937:   11 7a 04 aa 49 74 1f aa 49 74 1b 83 f2 01 75 02
+0xb77df947:   aa 49 89 ca c1 e9 02 83 e2 03 69 c0 01 01 01 01
+0xb77df957:   f3 ab 89 d1 f3 aa 8b 44 24 08 5f c3 90 90 90 90
+0xb77df967:   90 90 90 90 90 90 90 90 90 8b 4c 24 0c 89 f8 8b 
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0xb77e7ff4: <offset 0x20ff4> in /lib/ld-linux.so.2 at 0xb77c7000
+ECX=0x00000123 is an unknown value
+EDX=0x00000000 is an unknown value
+ESP=0xbfec6ac8 is pointing into the stack for thread: 0x09800400
+EBP=0xbfec6c68 is pointing into the stack for thread: 0x09800400
+ESI=0xbfec6b28 is pointing into the stack for thread: 0x09800400
+EDI=0xb2cadb74 is an unknown value
+
+
+Stack: [0xbfe7b000,0xbfecb000],  sp=0xbfec6ac8,  free space=302k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ld-linux.so.2+0x18957]  realloc+0x2f17
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader$NativeLibrary.load(Ljava/lang/String;)V+0
+j  java.lang.ClassLoader.loadLibrary0(Ljava/lang/Class;Ljava/io/File;)Z+300
+j  java.lang.ClassLoader.loadLibrary(Ljava/lang/Class;Ljava/lang/String;Z)V+148
+j  java.lang.Runtime.loadLibrary0(Ljava/lang/Class;Ljava/lang/String;)V+54
+j  java.lang.System.loadLibrary(Ljava/lang/String;)V+7
+j  org.eclipse.swt.internal.Library.load(Ljava/lang/String;Ljava/lang/StringBuffer;)Z+19
+j  org.eclipse.swt.internal.Library.loadLibrary(Ljava/lang/String;Z)V+438
+j  org.eclipse.swt.internal.Library.loadLibrary(Ljava/lang/String;)V+2
+j  org.eclipse.swt.internal.gtk.OS.<clinit>()V+3
+v  ~StubRoutines::call_stub
+j  org.eclipse.swt.internal.Converter.wcsToMbcs(Ljava/lang/String;[CZ)[B+16
+j  org.eclipse.swt.internal.Converter.wcsToMbcs(Ljava/lang/String;Ljava/lang/String;Z)[B+23
+j  org.eclipse.swt.widgets.Display.<clinit>()V+17
+v  ~StubRoutines::call_stub
+j  com.genuitec.pulse.installer.container.ui.base.BaseInstallerGUIContainer.prepareContainer(Lcom/genuitec/pulse/installer/context/IScopedContextProvider;)V+48
+j  com.genuitec.pulse.installer.machine.internal.SequenceMachineImpl.run(Lcom/genuitec/pulse/installer/context/IBaseContextProvider;Lcom/genuitec/pulse/installer/container/IContainer;)Lcom/genuitec/pulse/installer/module/SequenceResult;+331
+j  com.genuitec.pulse.installer.application.CommonInstallerApplication.start(Lorg/eclipse/equinox/app/IApplicationContext;)Ljava/lang/Object;+989
+j  org.eclipse.equinox.internal.app.EclipseAppHandle.run(Ljava/lang/Object;)Ljava/lang/Object;+135
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(Ljava/lang/Object;)Ljava/lang/Object;+103
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(Ljava/lang/Object;)Ljava/lang/Object;+29
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run(Ljava/lang/Object;)Ljava/lang/Object;+149
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run([Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Object;+183
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.eclipse.equinox.launcher.Main.invokeFramework([Ljava/lang/String;[Ljava/net/URL;)V+211
+j  org.eclipse.equinox.launcher.Main.basicRun([Ljava/lang/String;)V+126
+j  org.eclipse.equinox.launcher.Main.run([Ljava/lang/String;)I+4
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x09b29000 JavaThread "Worker-0" [_thread_blocked, id=3508, stack(0xb300d000,0xb305e000)]
+  0xb3375800 JavaThread "Worker-JM" [_thread_blocked, id=3507, stack(0xb305e000,0xb30af000)]
+  0xb3328000 JavaThread "[ThreadPool Manager] - Idle Thread" daemon [_thread_blocked, id=3506, stack(0xb30af000,0xb3100000)]
+  0xb3309c00 JavaThread "[Timer] - Main Queue Handler" daemon [_thread_blocked, id=3505, stack(0xb323c000,0xb328d000)]
+  0x09951800 JavaThread "Start Level Event Dispatcher" daemon [_thread_blocked, id=3503, stack(0xb375e000,0xb37af000)]
+  0x09954800 JavaThread "Framework Event Dispatcher" daemon [_thread_blocked, id=3502, stack(0xb37af000,0xb3800000)]
+  0x09955c00 JavaThread "State Saver" [_thread_blocked, id=3501, stack(0xb3a2e000,0xb3a7f000)]
+  0x0983a400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=3499, stack(0xb3c2e000,0xb3c7f000)]
+  0x09838400 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3498, stack(0xb3c7f000,0xb3d00000)]
+  0x09836c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3497, stack(0xb400d000,0xb405e000)]
+  0x09833000 JavaThread "Finalizer" daemon [_thread_blocked, id=3496, stack(0xb405e000,0xb40af000)]
+  0x09831800 JavaThread "Reference Handler" daemon [_thread_blocked, id=3495, stack(0xb40af000,0xb4100000)]
+=>0x09800400 JavaThread "main" [_thread_in_native, id=3492, stack(0xbfe7b000,0xbfecb000)]
+
+Other Threads:
+  0x09827c00 VMThread [stack: 0xb422b000,0xb42ac000] [id=3494]
+  0x0983c800 WatcherThread [stack: 0xb3a7f000,0xb3b00000] [id=3500]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 60224K, used 9748K [0x76980000, 0x7aad0000, 0x7d420000)
+  eden space 53568K,  10% used [0x76980000, 0x76ee1710, 0x79dd0000)
+  from space 6656K,  63% used [0x7a450000, 0x7a873ba8, 0x7aad0000)
+  to   space 6656K,   0% used [0x79dd0000, 0x79dd0000, 0x7a450000)
+ tenured generation   total 133824K, used 0K [0x7d420000, 0x856d0000, 0x8a980000)
+   the space 133824K,   0% used [0x7d420000, 0x7d420000, 0x7d420200, 0x856d0000)
+ compacting perm gen  total 12288K, used 6340K [0x8a980000, 0x8b580000, 0x92980000)
+   the space 12288K,  51% used [0x8a980000, 0x8afb1008, 0x8afb1200, 0x8b580000)
+    ro space 10240K,  56% used [0x92980000, 0x92f1ba38, 0x92f1bc00, 0x93380000)
+    rw space 12288K,  60% used [0x93380000, 0x93aca570, 0x93aca600, 0x93f80000)
+
+Card table byte_map: [0xb452e000,0xb461a000] byte_map_base: 0xb4179400
+
+Polling page: 0xb77b6000
+
+Code Cache  [0xb469a000, 0xb487a000, 0xb669a000)
+ total_blobs=825 nmethods=668 adapters=92 free_code_cache=30874Kb largest_free_block=31615808
+
+Compilation events (10 events):
+Event: 5.594 Thread 0x09838400  667             sun.misc.ProxyGenerator$ConstantPool::getUtf8 (18 bytes)
+Event: 5.594 Thread 0x09838400 nmethod 667 0xb486d588 code [0xb486d6a0, 0xb486d798]
+Event: 5.594 Thread 0x09838400  668             sun.misc.ProxyGenerator$ConstantPool::getValue (91 bytes)
+Event: 5.594 Thread 0x09838400 nmethod 668 0xb486d848 code [0xb486da00, 0xb486de20]
+Event: 5.598 Thread 0x09838400  669             java.util.LinkedHashMap$Entry::<init> (10 bytes)
+Event: 5.598 Thread 0x09838400 nmethod 669 0xb486e188 code [0xb486e280, 0xb486e340]
+Event: 5.598 Thread 0x09838400  670             java.nio.HeapByteBuffer::ix (7 bytes)
+Event: 5.599 Thread 0x09838400 nmethod 670 0xb486e388 code [0xb486e480, 0xb486e500]
+Event: 5.623 Thread 0x09838400  671   !         org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader::loadClass (162 bytes)
+Event: 5.627 Thread 0x09838400 nmethod 671 0xb486f3c8 code [0xb486fa10, 0xb48721a4]
+
+GC Heap History (2 events):
+Event: 5.454 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 60224K, used 53568K [0x76980000, 0x7aad0000, 0x7d420000)
+  eden space 53568K, 100% used [0x76980000, 0x79dd0000, 0x79dd0000)
+  from space 6656K,   0% used [0x79dd0000, 0x79dd0000, 0x7a450000)
+  to   space 6656K,   0% used [0x7a450000, 0x7a450000, 0x7aad0000)
+ tenured generation   total 133824K, used 0K [0x7d420000, 0x856d0000, 0x8a980000)
+   the space 133824K,   0% used [0x7d420000, 0x7d420000, 0x7d420200, 0x856d0000)
+ compacting perm gen  total 12288K, used 5140K [0x8a980000, 0x8b580000, 0x92980000)
+   the space 12288K,  41% used [0x8a980000, 0x8ae85038, 0x8ae85200, 0x8b580000)
+    ro space 10240K,  56% used [0x92980000, 0x92f1ba38, 0x92f1bc00, 0x93380000)
+    rw space 12288K,  60% used [0x93380000, 0x93aca570, 0x93aca600, 0x93f80000)
+Event: 5.467 GC heap after
+Heap after GC invocations=1 (full 0):
+ def new generation   total 60224K, used 4238K [0x76980000, 0x7aad0000, 0x7d420000)
+  eden space 53568K,   0% used [0x76980000, 0x76980000, 0x79dd0000)
+  from space 6656K,  63% used [0x7a450000, 0x7a873ba8, 0x7aad0000)
+  to   space 6656K,   0% used [0x79dd0000, 0x79dd0000, 0x7a450000)
+ tenured generation   total 133824K, used 0K [0x7d420000, 0x856d0000, 0x8a980000)
+   the space 133824K,   0% used [0x7d420000, 0x7d420000, 0x7d420200, 0x856d0000)
+ compacting perm gen  total 12288K, used 5140K [0x8a980000, 0x8b580000, 0x92980000)
+   the space 12288K,  41% used [0x8a980000, 0x8ae85038, 0x8ae85200, 0x8b580000)
+    ro space 10240K,  56% used [0x92980000, 0x92f1ba38, 0x92f1bc00, 0x93380000)
+    rw space 12288K,  60% used [0x93380000, 0x93aca570, 0x93aca600, 0x93f80000)
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 4.428 Thread 0x09800400 Threw 0x798f5200 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 4.673 Thread 0x09800400 Threw 0x79974ef0 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 4.673 Thread 0x09800400 Threw 0x79975318 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 4.673 Thread 0x09800400 Threw 0x79975648 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/prims/jvm.cpp:1235
+Event: 5.261 Thread 0x09800400 Threw 0x79bf76f8 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 5.261 Thread 0x09800400 Threw 0x79bff670 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 5.290 Thread 0x09800400 Threw 0x79c36dc8 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 5.304 Thread 0x09800400 Threw 0x79c41ae8 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/classfile/systemDictionary.cpp:179
+Event: 5.619 Thread 0x09800400 Threw 0x76e419d8 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/prims/jvm.cpp:3718
+Event: 5.619 Thread 0x09800400 Threw 0x76e419d8 at /build/buildd/openjdk-6-6b30-1.13.1/build/openjdk/hotspot/src/share/vm/prims/jni.cpp:716
+
+Events (10 events):
+Event: 5.495 loading class 0x9404e408 done
+Event: 5.495 loading class 0x9404e220 done
+Event: 5.620 Thread 0x09bdf800 Thread added: 0x09bdf800
+Event: 5.623 Executing VM operation: RevokeBias
+Event: 5.623 Executing VM operation: RevokeBias done
+Event: 5.623 Thread 0x09bdf800 Thread exited: 0x09bdf800
+Event: 5.662 Thread 0x09bdf800 Thread added: 0x09bdf800
+Event: 5.666 Executing VM operation: RevokeBias
+Event: 5.666 Executing VM operation: RevokeBias done
+Event: 5.666 Thread 0x09bdf800 Thread exited: 0x09bdf800
+
+
+Dynamic libraries:
+08048000-0804c000 r-xp 00000000 08:12 1849028    /home/tony/MyEclipse Professional 2014/Uninstaller/one-uninstall
+0804c000-0804d000 rw-p 00003000 08:12 1849028    /home/tony/MyEclipse Professional 2014/Uninstaller/one-uninstall
+097f5000-09c45000 rw-p 00000000 00:00 0          [heap]
+76980000-7aad0000 rw-p 00000000 00:00 0 
+7aad0000-7d420000 rw-p 00000000 00:00 0 
+7d420000-856d0000 rw-p 00000000 00:00 0 
+856d0000-8a980000 rw-p 00000000 00:00 0 
+8a980000-8b580000 rw-p 00000000 00:00 0 
+8b580000-92980000 rw-p 00000000 00:00 0 
+92980000-92f1c000 r--p 00001000 08:12 3801725    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+92f1c000-93380000 rw-p 00000000 00:00 0 
+93380000-93acb000 rw-p 0059d000 08:12 3801725    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+93acb000-93f80000 rw-p 00000000 00:00 0 
+93f80000-9428e000 rw-p 00ce8000 08:12 3801725    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+9428e000-94380000 rw-p 00000000 00:00 0 
+94380000-94389000 r-xp 00ff6000 08:12 3801725    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/classes.jsa
+94389000-94780000 rw-p 00000000 00:00 0 
+b2a00000-b2a21000 rw-p 00000000 00:00 0 
+b2a21000-b2b00000 ---p 00000000 00:00 0 
+b2b00000-b2b21000 rw-p 00000000 00:00 0 
+b2b21000-b2c00000 ---p 00000000 00:00 0 
+b2c53000-b2cac000 r-xp 00000000 08:12 3412591    /home/tony/MyEclipse Professional 2014/Uninstaller/configuration/org.eclipse.osgi/bundles/63/1/.cp/libswt-pi-gtk-3659.so
+b2cac000-b2cae000 rw-p 00058000 08:12 3412591    /home/tony/MyEclipse Professional 2014/Uninstaller/configuration/org.eclipse.osgi/bundles/63/1/.cp/libswt-pi-gtk-3659.so
+b2cae000-b2caf000 r-xp 0005b000 08:12 3412591    /home/tony/MyEclipse Professional 2014/Uninstaller/configuration/org.eclipse.osgi/bundles/63/1/.cp/libswt-pi-gtk-3659.so
+b2caf000-b2cb2000 ---p 00000000 00:00 0 
+b2cb2000-b2d00000 rw-p 00000000 00:00 0 
+b2d00000-b2d21000 rw-p 00000000 00:00 0 
+b2d21000-b2e00000 ---p 00000000 00:00 0 
+b2e00000-b2e23000 rw-p 00000000 00:00 0 
+b2e23000-b2f00000 ---p 00000000 00:00 0 
+b2f00000-b2f21000 rw-p 00000000 00:00 0 
+b2f21000-b3000000 ---p 00000000 00:00 0 
+b300d000-b3010000 ---p 00000000 00:00 0 
+b3010000-b305e000 rw-p 00000000 00:00 0          [stack:3508]
+b305e000-b3061000 ---p 00000000 00:00 0 
+b3061000-b30af000 rw-p 00000000 00:00 0          [stack:3507]
+b30af000-b30b2000 ---p 00000000 00:00 0 
+b30b2000-b3100000 rw-p 00000000 00:00 0          [stack:3506]
+b3100000-b3123000 rw-p 00000000 00:00 0 
+b3123000-b3200000 ---p 00000000 00:00 0 
+b3219000-b321a000 rw-p 00000000 00:00 0 
+b321a000-b321d000 r-xp 00000000 08:12 5526086    /tmp/swtlib-32/libswt-gtk-3659.so
+b321d000-b321e000 rw-p 00002000 08:12 5526086    /tmp/swtlib-32/libswt-gtk-3659.so
+b321e000-b321f000 rw-p 00000000 00:00 0 
+b321f000-b3226000 r--s 00000000 08:12 3818360    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+b3226000-b323b000 r--p 00000000 08:12 4460255    /usr/share/locale-langpack/zh_CN/LC_MESSAGES/libc.mo
+b323b000-b323c000 r--s 00002000 08:12 1847892    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.runtime.compatibility.registry_3.3.0.v20100520/runtime_registry_compatibility.jar
+b323c000-b323f000 ---p 00000000 00:00 0 
+b323f000-b328d000 rw-p 00000000 00:00 0          [stack:3505]
+b328d000-b328e000 r--s 00002000 08:12 1846200    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.ssl_1.0.100.v20100906-1425.jar
+b328e000-b3296000 r--s 00049000 08:12 1847788    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.metadata_2.0.1.R36x_v20101202.jar
+b3296000-b3299000 r--s 0001c000 08:12 1846192    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.provider.filetransfer_3.1.0.v20100906-1425.jar
+b3299000-b329f000 r--s 00037000 08:12 1844076    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.client.common.widgets.ui_4.6.0.v201304292250.jar
+b329f000-b32a1000 r--s 0000a000 08:12 1845852    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.apache.commons.logging_1.0.4.v201005080501.jar
+b32a1000-b32a3000 r--s 0000a000 08:12 1845111    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.updatesite_4.6.0.v201303051340.jar
+b32a3000-b32a6000 r--s 0000b000 08:12 1847816    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.persistence.annotations_1.0.0.v201201111650.jar
+b32a6000-b32a9000 r--s 00014000 08:12 1846221    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf_3.1.0.v20100906-1425.jar
+b32a9000-b32aa000 r--s 00005000 08:12 1847805    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20100503.jar
+b32aa000-b32ac000 r--s 00002000 08:12 1844077    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.client.common.widgets_4.5.0.v201212141140.jar
+b32ac000-b32ad000 r--s 0000e000 08:12 1846263    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.frameworkadmin.equinox_1.0.200.v20100505.jar
+b32ad000-b32af000 r--s 0000c000 08:12 1845148    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.apache.commons.codec_1.3.0.v20100518-1140.jar
+b32af000-b32b4000 r--s 00040000 08:12 1847789    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.publisher_1.1.2.v20100824-2220.jar
+b32b4000-b32b6000 r--s 0000f000 08:12 1845889    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20100906-1425.jar
+b32b6000-b32b8000 r--s 00007000 08:12 1847784    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.extensionlocation_1.2.0.v20100518.jar
+b32b8000-b32ba000 r--s 00008000 08:12 1847806    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.simpleconfigurator_1.0.200.v20100503.jar
+b32ba000-b32be000 r--s 00017000 08:12 1845853    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.commands_3.6.0.I20100512-1500.jar
+b32be000-b32c1000 r--s 00018000 08:12 1847787    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.metadata.repository_1.1.0.v20100513.jar
+b32c1000-b32c3000 r--s 0000b000 08:12 1847798    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.touchpoint.natives_1.0.201.R36x_v20110111.jar
+b32c3000-b32c4000 r--s 00002000 08:12 1844303    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.container.cli_4.2.0.v201201111650.jar
+b32c4000-b32c6000 r--s 00157000 08:12 1844074    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.eclipse.jniwrapper_9.0.0.v201301241640.jar
+b32c6000-b32db000 r--s 0023e000 08:12 1847818    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.swt.gtk.linux.x86_64_3.6.2.v3659b.jar
+b32db000-b32df000 r--s 00028000 08:12 1847783    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.engine_2.0.1.R36x_v20110201.jar
+b32df000-b32e0000 r--s 00005000 08:12 1844305    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.module.cli_4.3.0.v201203231740.jar
+b32e0000-b32f5000 r--s 00212000 08:12 1847817    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.swt.gtk.linux.x86_3.6.2.v3659b.jar
+b32f5000-b32f7000 r--s 0000f000 08:12 1847786    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.jarprocessor_1.0.200.v20100503a.jar
+b32f7000-b32fa000 r--s 00016000 08:12 1845119    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.common.http_4.6.0.v201304172000.jar
+b32fa000-b32fd000 r--s 00014000 08:12 1845854    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.contenttype_3.4.100.v20100505-1235.jar
+b32fd000-b3300000 r--s 0001c000 08:12 1846270    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.artifact.repository_1.1.1.R36x_v20100901.jar
+b3300000-b3400000 rw-p 00000000 00:00 0 
+b3400000-b3455000 rw-p 00000000 00:00 0 
+b3455000-b3500000 ---p 00000000 00:00 0 
+b3500000-b3521000 rw-p 00000000 00:00 0 
+b3521000-b3600000 ---p 00000000 00:00 0 
+b3600000-b3621000 rw-p 00000000 00:00 0 
+b3621000-b3700000 ---p 00000000 00:00 0 
+b3700000-b3702000 r--s 0000b000 08:12 1844141    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.common.ui_4.5.0.v201209251120.jar
+b3702000-b370e000 r--s 00066000 08:12 1844307    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.processor.offline_4.6.0.v201305221620.jar
+b370e000-b3719000 r--s 00055000 08:12 1844306    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.module.ui_4.6.0.v201304292010.jar
+b3719000-b371b000 r--s 00013000 08:12 1846245    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.app_1.3.1.R36x_v20100803.jar
+b371b000-b371d000 r--s 0000c000 08:12 1845880    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.identity_3.1.0.v20100906-1425.jar
+b371d000-b3725000 r--s 00030000 08:12 1844302    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.common_4.6.0.v201305221620.jar
+b3725000-b3728000 r--s 00019000 08:12 1847801    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.preferences_3.3.0.v20100503.jar
+b3728000-b372c000 r--s 00021000 08:12 1847791    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.repository_2.0.2.R36x_v20110111-1500.jar
+b372c000-b372e000 r--s 00001000 08:12 1847812    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.maynstall.model.annotations_1.0.0.v201201111650.jar
+b372e000-b3733000 r--s 0002b000 08:12 1847821    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.sat4j.core_2.2.0.v20100429.jar
+b3733000-b3739000 r--s 00028000 08:12 1845123    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.model_4.4.0.v201207112030.jar
+b3739000-b373b000 r--s 0000e000 08:12 1845861    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.net_1.2.100.I20100511-0800.jar
+b373b000-b373d000 r--s 00017000 08:12 1846257    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.common_3.6.0.v20100503.jar
+b373d000-b3747000 r--s 00055000 08:12 1845096    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.common.exec_4.6.0.v201306171830.jar
+b3747000-b374e000 r--s 0005d000 08:12 1845103    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.common_4.6.0.v201305031920.jar
+b374e000-b374f000 r--s 00004000 08:12 1844080    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.compatibility.e36_4.4.0.v201206011900.jar
+b374f000-b3751000 r--s 00007000 08:12 1846268    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.frameworkadmin_2.0.0.v20100503.jar
+b3751000-b3753000 r--s 00010000 08:12 1845865    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.runtime_3.6.0.v20100505.jar
+b3753000-b3754000 r--s 00005000 08:12 1847811    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.maynstall.common.util_0.5.0.v201201111650.jar
+b3754000-b3756000 r--s 00005000 08:12 1847820    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.update.configurator.manipulator_4.3.0.v201204091350.jar
+b3756000-b3758000 r--s 00001000 08:12 1846176    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20100906-1425.jar
+b3758000-b375a000 r--s 00008000 08:12 1845860    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.net.linux.x86_64_1.1.0.I20100505-1245.jar
+b375a000-b375d000 r--s 0000a000 08:12 1847813    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.maynstall.model.core_0.2.0.v201201111650.jar
+b375d000-b375e000 r--s 00004000 08:12 1847819    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.swt_3.6.2.v3659c.jar
+b375e000-b3761000 ---p 00000000 00:00 0 
+b3761000-b37af000 rw-p 00000000 00:00 0          [stack:3503]
+b37af000-b37b2000 ---p 00000000 00:00 0 
+b37b2000-b3800000 rw-p 00000000 00:00 0          [stack:3502]
+b3800000-b3821000 rw-p 00000000 00:00 0 
+b3821000-b3900000 ---p 00000000 00:00 0 
+b3900000-b3921000 rw-p 00000000 00:00 0 
+b3921000-b3a00000 ---p 00000000 00:00 0 
+b3a00000-b3a02000 r--s 00016000 08:12 1847762    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.director_2.0.3.R36x_v20101117-1018.jar
+b3a02000-b3a04000 r--s 00003000 08:12 1845887    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20100906-1425.jar
+b3a04000-b3a06000 r--s 00012000 08:12 1847800    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.updatesite_1.0.201.R36x_v20100823.jar
+b3a06000-b3a07000 r--s 00006000 08:12 1845108    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.installer.common_4.3.0.v201203231950.jar
+b3a07000-b3a09000 r--s 00006000 08:12 1847809    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.maynstall.client.core_0.5.0.v201304172000.jar
+b3a09000-b3a0c000 r--s 0001a000 08:12 1847794    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.touchpoint.eclipse_2.0.3.R36x_v20101202.jar
+b3a0c000-b3a0e000 r--s 00009000 08:12 1844304    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.container.ui_4.5.0.v201208301040.jar
+b3a0e000-b3a14000 r--s 0003c000 08:12 1845102    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.common.provisioning_4.4.0.v201207112030.jar
+b3a14000-b3a15000 r--s 00007000 08:12 1847782    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.directorywatcher_1.0.203.R36x_v20101220.jar
+b3a15000-b3a17000 r--s 00011000 08:12 1847807    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.util_1.0.200.v20100503.jar
+b3a17000-b3a2b000 r--s 000f1000 08:12 1847808    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.jface_3.6.2.M20110210-1200.jar
+b3a2b000-b3a2e000 r--s 0000c000 08:12 1844075    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.client.common.shortcut_4.6.0.v201303131310.jar
+b3a2e000-b3a31000 ---p 00000000 00:00 0 
+b3a31000-b3a7f000 rw-p 00000000 00:00 0          [stack:3501]
+b3a7f000-b3a80000 ---p 00000000 00:00 0 
+b3a80000-b3b00000 rw-p 00000000 00:00 0          [stack:3500]
+b3b00000-b3bfb000 rw-p 00000000 00:00 0 
+b3bfb000-b3c00000 ---p 00000000 00:00 0 
+b3c00000-b3c03000 r--s 00021000 08:12 1845121    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.common_4.6.0.v201306171830.jar
+b3c03000-b3c06000 r--s 00017000 08:12 1847804    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.security_1.0.200.v20100503.jar
+b3c06000-b3c0a000 r--s 00029000 08:12 1847803    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.registry_3.5.0.v20100503.jar
+b3c0a000-b3c0b000 r--s 00003000 08:12 1847810    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.maynstall.common.type_0.5.0.v201201111650.jar
+b3c0b000-b3c10000 r--s 0001e000 08:12 1845125    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/javax.persistence_2.0.3.v201010191057.jar
+b3c10000-b3c12000 r--s 00003000 08:12 1844079    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.common.system_4.2.0.v201201111650.jar
+b3c12000-b3c15000 r--s 0001b000 08:12 1847822    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.sat4j.pb_2.2.0.v20100429.jar
+b3c15000-b3c18000 r--s 0000e000 08:12 1847814    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.osgi.services_3.2.100.v20100503.jar
+b3c18000-b3c21000 r--s 0003c000 08:12 1844116    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.base_4.6.0.v201308071840.jar
+b3c21000-b3c24000 r--s 0000a000 08:12 1845879    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.ecf.filetransfer_4.0.0.v20100906-1425.jar
+b3c24000-b3c28000 r--s 0001c000 08:12 1844309    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse.installer.processor.online_4.6.0.v201304121050.jar
+b3c28000-b3c2e000 r--s 00049000 08:12 1845795    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.apache.commons.httpclient_3.1.0.v201005080502.jar
+b3c2e000-b3c31000 ---p 00000000 00:00 0 
+b3c31000-b3c7f000 rw-p 00000000 00:00 0          [stack:3499]
+b3c7f000-b3c82000 ---p 00000000 00:00 0 
+b3c82000-b3d00000 rw-p 00000000 00:00 0          [stack:3498]
+b3d00000-b3d21000 rw-p 00000000 00:00 0 
+b3d21000-b3e00000 ---p 00000000 00:00 0 
+b3e00000-b3e21000 rw-p 00000000 00:00 0 
+b3e21000-b3f00000 ---p 00000000 00:00 0 
+b3f00000-b3f21000 rw-p 00000000 00:00 0 
+b3f21000-b4000000 ---p 00000000 00:00 0 
+b4000000-b4003000 r--s 00014000 08:12 1845855    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.jobs_3.5.1.R36x_v20100824.jar
+b4003000-b400b000 r-xp 00000000 08:12 3805258    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnio.so
+b400b000-b400c000 r--p 00007000 08:12 3805258    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnio.so
+b400c000-b400d000 rw-p 00008000 08:12 3805258    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnio.so
+b400d000-b4010000 ---p 00000000 00:00 0 
+b4010000-b405e000 rw-p 00000000 00:00 0          [stack:3497]
+b405e000-b4061000 ---p 00000000 00:00 0 
+b4061000-b40af000 rw-p 00000000 00:00 0          [stack:3496]
+b40af000-b40b2000 ---p 00000000 00:00 0 
+b40b2000-b4100000 rw-p 00000000 00:00 0          [stack:3495]
+b4100000-b4121000 rw-p 00000000 00:00 0 
+b4121000-b4200000 ---p 00000000 00:00 0 
+b4200000-b4201000 r--s 00008000 08:12 1845859    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.net.linux.x86_1.1.100.R36x_v20100825-0800.jar
+b4201000-b4202000 r--s 00005000 08:12 1845864    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.200.v20100517.jar
+b4202000-b4218000 r-xp 00000000 08:12 3805262    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnet.so
+b4218000-b4219000 r--p 00015000 08:12 3805262    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnet.so
+b4219000-b421a000 rw-p 00016000 08:12 3805262    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libnet.so
+b421a000-b422b000 r--s 00108000 08:12 1847815    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.osgi_3.6.2.R36x_v20110210.jar
+b422b000-b422c000 ---p 00000000 00:00 0 
+b422c000-b42df000 rw-p 00000000 00:00 0          [stack:3494]
+b42df000-b4475000 r--s 01a09000 08:12 3805248    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/rt.jar
+b4475000-b4489000 rw-p 00000000 00:00 0 
+b4489000-b44c3000 rw-p 00000000 00:00 0 
+b44c3000-b4505000 rw-p 00000000 00:00 0 
+b4505000-b452e000 rw-p 00000000 00:00 0 
+b452e000-b454f000 rw-p 00000000 00:00 0 
+b454f000-b4563000 rw-p 00000000 00:00 0 
+b4563000-b45a5000 rw-p 00000000 00:00 0 
+b45a5000-b45ce000 rw-p 00000000 00:00 0 
+b45ce000-b45d4000 rw-p 00000000 00:00 0 
+b45d4000-b460e000 rw-p 00000000 00:00 0 
+b460e000-b4622000 rw-p 00000000 00:00 0 
+b4622000-b469a000 rw-p 00000000 00:00 0 
+b469a000-b487a000 rwxp 00000000 00:00 0 
+b487a000-b669a000 rw-p 00000000 00:00 0 
+b669a000-b66ae000 r-xp 00000000 08:12 1442735    /lib/i386-linux-gnu/libz.so.1.2.3.4
+b66ae000-b66af000 r--p 00013000 08:12 1442735    /lib/i386-linux-gnu/libz.so.1.2.3.4
+b66af000-b66b0000 rw-p 00014000 08:12 1442735    /lib/i386-linux-gnu/libz.so.1.2.3.4
+b66b0000-b66b1000 r--s 00002000 08:12 1844310    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/com.genuitec.pulse2.client.auth.addon_4.2.0.v201201111650.jar
+b66b1000-b66b3000 r--s 0002b000 08:12 1846262    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.ds_1.2.1.R36x_v20100803.jar
+b66b3000-b66b6000 r--s 0000e000 08:12 1846271    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.core_2.0.3.R36x_v20110111.jar
+b66b6000-b66bd000 r--s 00053000 08:12 3830346    /usr/lib/jvm/java-6-openjdk-common/jre/lib/resources.jar
+b66bd000-b66bf000 r--s 00013000 08:12 3801709    /usr/lib/jvm/java-6-openjdk-common/jre/lib/jce.jar
+b66bf000-b66c3000 r--s 0003c000 08:12 3830361    /usr/lib/jvm/java-6-openjdk-common/jre/lib/jsse.jar
+b66c3000-b66c5000 r--s 0000a000 08:12 1846269    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+b66c5000-b66d0000 r-xp 00000000 08:12 1450321    /lib/i386-linux-gnu/libnss_files-2.15.so
+b66d0000-b66d1000 r--p 0000a000 08:12 1450321    /lib/i386-linux-gnu/libnss_files-2.15.so
+b66d1000-b66d2000 rw-p 0000b000 08:12 1450321    /lib/i386-linux-gnu/libnss_files-2.15.so
+b66d2000-b66dc000 r-xp 00000000 08:12 1450320    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b66dc000-b66dd000 r--p 00009000 08:12 1450320    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b66dd000-b66de000 rw-p 0000a000 08:12 1450320    /lib/i386-linux-gnu/libnss_nis-2.15.so
+b66de000-b66f4000 r-xp 00000000 08:12 1450299    /lib/i386-linux-gnu/libnsl-2.15.so
+b66f4000-b66f5000 r--p 00015000 08:12 1450299    /lib/i386-linux-gnu/libnsl-2.15.so
+b66f5000-b66f6000 rw-p 00016000 08:12 1450299    /lib/i386-linux-gnu/libnsl-2.15.so
+b66f6000-b66f8000 rw-p 00000000 00:00 0 
+b66f8000-b66ff000 r-xp 00000000 08:12 1450322    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b66ff000-b6700000 r--p 00006000 08:12 1450322    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b6700000-b6701000 rw-p 00007000 08:12 1450322    /lib/i386-linux-gnu/libnss_compat-2.15.so
+b6701000-b6704000 r--s 00031000 08:12 3830348    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunjce_provider.jar
+b6704000-b670c000 r-xp 00000000 08:12 3807579    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+b670c000-b670d000 r--p 00007000 08:12 3807579    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+b670d000-b670e000 rw-p 00008000 08:12 3807579    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libzip.so
+b670e000-b6716000 rw-s 00000000 08:12 5524255    /tmp/hsperfdata_tony/3492
+b6716000-b673e000 r-xp 00000000 08:12 3805270    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+b673e000-b673f000 r--p 00027000 08:12 3805270    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+b673f000-b6741000 rw-p 00028000 08:12 3805270    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libjava.so
+b6741000-b6748000 r-xp 00000000 08:12 1450308    /lib/i386-linux-gnu/librt-2.15.so
+b6748000-b6749000 r--p 00006000 08:12 1450308    /lib/i386-linux-gnu/librt-2.15.so
+b6749000-b674a000 rw-p 00007000 08:12 1450308    /lib/i386-linux-gnu/librt-2.15.so
+b674a000-b6766000 r-xp 00000000 08:12 1442645    /lib/i386-linux-gnu/libgcc_s.so.1
+b6766000-b6767000 r--p 0001b000 08:12 1442645    /lib/i386-linux-gnu/libgcc_s.so.1
+b6767000-b6768000 rw-p 0001c000 08:12 1442645    /lib/i386-linux-gnu/libgcc_s.so.1
+b6768000-b6792000 r-xp 00000000 08:12 1450319    /lib/i386-linux-gnu/libm-2.15.so
+b6792000-b6793000 r--p 00029000 08:12 1450319    /lib/i386-linux-gnu/libm-2.15.so
+b6793000-b6794000 rw-p 0002a000 08:12 1450319    /lib/i386-linux-gnu/libm-2.15.so
+b6794000-b686c000 r-xp 00000000 08:12 3806190    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+b686c000-b686d000 ---p 000d8000 08:12 3806190    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+b686d000-b6871000 r--p 000d8000 08:12 3806190    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+b6871000-b6872000 rw-p 000dc000 08:12 3806190    /usr/lib/i386-linux-gnu/libstdc++.so.6.0.16
+b6872000-b6879000 rw-p 00000000 00:00 0 
+b6879000-b687c000 r--s 00077000 08:12 3830351    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/localedata.jar
+b687c000-b6880000 r--s 00039000 08:12 3830347    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/sunpkcs11.jar
+b6880000-b688c000 r-xp 00000000 08:12 3805269    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+b688c000-b688d000 r--p 0000b000 08:12 3805269    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+b688d000-b688e000 rw-p 0000c000 08:12 3805269    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/libverify.so
+b688e000-b6e3f000 r-xp 00000000 08:12 3805275    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+b6e3f000-b6e56000 r--p 005b0000 08:12 3805275    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+b6e56000-b6e65000 rw-p 005c7000 08:12 3805275    /usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client/libjvm.so
+b6e65000-b727e000 rw-p 00000000 00:00 0 
+b727e000-b73e3000 r--p 001c8000 08:12 3808341    /usr/lib/locale/locale-archive
+b73e3000-b75e3000 r--p 00000000 08:12 3808341    /usr/lib/locale/locale-archive
+b75e3000-b75e4000 rw-p 00000000 00:00 0 
+b75e4000-b7788000 r-xp 00000000 08:12 1450326    /lib/i386-linux-gnu/libc-2.15.so
+b7788000-b778a000 r--p 001a4000 08:12 1450326    /lib/i386-linux-gnu/libc-2.15.so
+b778a000-b778b000 rw-p 001a6000 08:12 1450326    /lib/i386-linux-gnu/libc-2.15.so
+b778b000-b778f000 rw-p 00000000 00:00 0 
+b778f000-b7792000 r-xp 00000000 08:12 1450324    /lib/i386-linux-gnu/libdl-2.15.so
+b7792000-b7793000 r--p 00002000 08:12 1450324    /lib/i386-linux-gnu/libdl-2.15.so
+b7793000-b7794000 rw-p 00003000 08:12 1450324    /lib/i386-linux-gnu/libdl-2.15.so
+b7794000-b77ab000 r-xp 00000000 08:12 1450306    /lib/i386-linux-gnu/libpthread-2.15.so
+b77ab000-b77ac000 r--p 00016000 08:12 1450306    /lib/i386-linux-gnu/libpthread-2.15.so
+b77ac000-b77ad000 rw-p 00017000 08:12 1450306    /lib/i386-linux-gnu/libpthread-2.15.so
+b77ad000-b77af000 rw-p 00000000 00:00 0 
+b77af000-b77b0000 r--s 00005000 08:12 1847785    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.p2.garbagecollector_1.0.100.v20100503.jar
+b77b0000-b77b2000 r--s 0000f000 08:12 3830350    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/pulse-java.jar
+b77b2000-b77b3000 r--s 00007000 08:12 4065088    /usr/share/java/java-atk-wrapper.jar
+b77b3000-b77b5000 r--s 00001000 08:12 3830349    /usr/lib/jvm/java-6-openjdk-common/jre/lib/ext/dnsns.jar
+b77b5000-b77b6000 rw-p 00000000 00:00 0 
+b77b6000-b77b7000 r--p 00000000 00:00 0 
+b77b7000-b77c3000 r-xp 00000000 08:12 1847841    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.2.R36x_v20101019_1345/eclipse_1310.so
+b77c3000-b77c4000 rw-p 0000c000 08:12 1847841    /home/tony/MyEclipse Professional 2014/Uninstaller/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_1.1.2.R36x_v20101019_1345/eclipse_1310.so
+b77c4000-b77c6000 rw-p 00000000 00:00 0 
+b77c6000-b77c7000 r-xp 00000000 00:00 0          [vdso]
+b77c7000-b77e7000 r-xp 00000000 08:12 1450307    /lib/i386-linux-gnu/ld-2.15.so
+b77e7000-b77e8000 r--p 0001f000 08:12 1450307    /lib/i386-linux-gnu/ld-2.15.so
+b77e8000-b77e9000 rw-p 00020000 08:12 1450307    /lib/i386-linux-gnu/ld-2.15.so
+bfe7b000-bfe7e000 ---p 00000000 00:00 0 
+bfe7f000-bfecb000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xms196m -Xmx320m -XX:MaxPermSize=128m 
+java_command: <unknown>
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/jdk7
+JRE_HOME=/usr/lib/jvm/jdk7/jre
+CLASSPATH=.:/usr/lib/jvm/jdk7/lib:/usr/lib/jvm/jdk7/jre/lib:/usr/local/tomcat/lib:/weka.jar:/home/tony/libfm/bin/libFM:/home/tony/libfm/bin/convert:/home/tony/libfm/bin/transpose:/usr/local/matlab2009/bin/matlab
+PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/apache-maven-3.1.0-alpha-1/bin:/usr/lib/jvm/jdk7/bin:/usr/local/tomcat/bin:/usr/local/javacc/bin:/home/tony/libfm/bin:/usr/local/matlab2009/bin:/usr/local/texlive/2013/bin/i386-linux/:/usr/local/eclipse
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client:/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x46eb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x46eb60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x376c20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x376c20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x376c20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x376c20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x376ab0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x377110], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x377110], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x377110], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x377110], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Ubuntu 12.04 (precise)
+uname:Linux 3.5.0-49-generic #73~precise1-Ubuntu SMP Wed Apr 2 18:36:19 UTC 2014 i686
+libc:glibc 2.15 NPTL 2.15 
+rlimit: STACK 8192k, CORE 0k, NPROC 63821, NOFILE 4096, AS infinity
+load average:0.30 0.37 0.34
+
+/proc/meminfo:
+MemTotal:        8185136 kB
+MemFree:         5648832 kB
+Buffers:          436516 kB
+Cached:          1231300 kB
+SwapCached:            0 kB
+Active:          1016236 kB
+Inactive:        1288972 kB
+Active(anon):     640368 kB
+Inactive(anon):   596416 kB
+Active(file):     375868 kB
+Inactive(file):   692556 kB
+Unevictable:          24 kB
+Mlocked:              24 kB
+HighTotal:       7377668 kB
+HighFree:        5490388 kB
+LowTotal:         807468 kB
+LowFree:          158444 kB
+SwapTotal:       3906556 kB
+SwapFree:        3906556 kB
+Dirty:               592 kB
+Writeback:             4 kB
+AnonPages:        637940 kB
+Mapped:           141792 kB
+Shmem:            599052 kB
+Slab:             187112 kB
+SReclaimable:     164640 kB
+SUnreclaim:        22472 kB
+KernelStack:        3560 kB
+PageTables:         8668 kB
+NFS_Unstable:          0 kB
+Bounce:               40 kB
+WritebackTmp:          0 kB
+CommitLimit:     7999124 kB
+Committed_AS:    3476120 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       23612 kB
+VmallocChunk:      92752 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       10232 kB
+DirectMap2M:      903168 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2401.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2401.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2401.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i7-3630QM CPU @ 2.40GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 1200.000
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx rdtscp lm constant_tsc arch_perfmon pebs bts xtopology nonstop_tsc aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat epb xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips	: 4789.14
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8185136k(5648832k free), swap 3906556k(3906556k free)
+
+vm_info: OpenJDK Client VM (23.25-b01) for linux-x86 JRE (1.6.0_30-b30), built on Mar 26 2014 14:16:59 by "buildd" with gcc 4.6.3
+
+time: Sun Jan 18 10:50:20 2015
+elapsed time: 5 seconds
